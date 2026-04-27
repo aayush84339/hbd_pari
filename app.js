@@ -5,16 +5,16 @@
 
 // ==================== IMAGE LIST (10 images) ====================
 const images = [
-    'images/photo1.jpg',
-    'images/photo2.jpg',
-    'images/photo3.jpg',
-    'images/photo4.jpg',
-    'images/photo5.jpg',
-    'images/photo6.jpg',
-    'images/photo7.jpg',
-    'images/photo8.jpg',
-    'images/photo9.jpg',
-    'images/photo10.jpg'
+    'photo1.jpeg',
+    'photo2.jpeg',
+    'photo3.jpeg',
+    'photo4.jpeg',
+    'photo5.jpeg',
+    'photo6.jpeg',
+    'photo7.jpeg',
+    'photo8.jpeg',
+    'photo9.jpeg',
+    'photo10.jpeg'
 ];
 
 let currentIndex = 0;
