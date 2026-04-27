@@ -40,10 +40,10 @@ const PIPE_COLOR_DARK = '#1e8449';
 
 // Cute birthday messages based on score
 const cuteMessages = [
-    { min: 0, max: 2, msg: "Aww Pari, don't worry! Even the cutest birds stumble 🐣💕" },
-    { min: 3, max: 5, msg: "Nice try, Pari! You're just warming up! 🌸✨" },
-    { min: 6, max: 10, msg: "Wow Pari! You're getting good at this! Keep soaring! 🦋💫" },
-    { min: 11, max: 15, msg: "Amazing, Pari! You fly like a birthday star! 🌟🎂" },
+    { min: 0, max: 2, msg: "Aww, don't worry! Even the cutest birds stumble 🐣💕" },
+    { min: 3, max: 5, msg: "Nice try! You're just warming up! 🌸✨" },
+    { min: 6, max: 10, msg: "Wow! You're getting good at this! Keep soaring! 🦋💫" },
+    { min: 11, max: 15, msg: "Amazing! You fly like a birthday star! 🌟🎂" },
     { min: 16, max: 20, msg: "Incredible skills, birthday girl! Pari the flappy queen! 👑🎀" },
     { min: 21, max: 30, msg: "UNSTOPPABLE Pari! You're a legend! This birthday is YOURS! 🚀🎉" },
     { min: 31, max: 999, msg: "OMG PARI!! You broke the game!! You're the ultimate birthday champion! 🏆👑💖🎂" }
