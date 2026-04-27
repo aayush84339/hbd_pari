@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Pari! 🎂✨</title>
+    <meta name="description" content="A special birthday celebration for the amazing Pari!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700;900&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ==================== LANDING SECTION ==================== -->
+    <section id="landing" class="section active">
+        <canvas id="confettiCanvas"></canvas>
+        <div class="landing-content">
+            <div class="cake-emoji">🎂</div>
+            <h1 class="birthday-title">
+                <span class="line1">Happy Birthday</span>
+                <span class="line2">Pari!</span>
+            </h1>
+            <p class="birthday-subtitle">Wishing you a day filled with love, laughter & magic ✨</p>
+            <div class="floating-emojis">
+                <span class="float-emoji" style="--delay:0s; --x: 10%">🎈</span>
+                <span class="float-emoji" style="--delay:0.5s; --x: 25%">🎁</span>
+                <span class="float-emoji" style="--delay:1s; --x: 40%">🌟</span>
+                <span class="float-emoji" style="--delay:1.5s; --x: 55%">🎀</span>
+                <span class="float-emoji" style="--delay:2s; --x: 70%">🎉</span>
+                <span class="float-emoji" style="--delay:2.5s; --x: 85%">💖</span>
+                <span class="float-emoji" style="--delay:3s; --x: 15%">🧁</span>
+                <span class="float-emoji" style="--delay:3.5s; --x: 60%">🥳</span>
+            </div>
+            <button id="enterBtn" class="enter-btn" onclick="startExperience()">
+                <span>✨ Tap to Celebrate ✨</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== GALLERY SECTION ==================== -->
+    <section id="gallery" class="section">
+        <div class="gallery-bg"></div>
+        <div class="gallery-overlay"></div>
+        <div class="slideshow-container">
+            <div class="slide-wrapper" id="slideWrapper">
+                <!-- Single image element animated dynamically -->
+                <div id="activeSlide" class="slide-img"></div>
+            </div>
+            <div class="slide-counter">
+                <span id="slideNum">1</span> / 10
+            </div>
+            <div class="slide-dots" id="slideDots"></div>
+        </div>
+        <div class="gallery-nav">
+            <button id="toGameBtn" class="nav-btn game-btn" onclick="showSection('game')">
+                🎮 Play a Game for Pari!
+            </button>
+        </div>
+        <div class="sparkle-container" id="sparkles"></div>
+    </section>
+
+    <!-- ==================== GAME SECTION ==================== -->
+    <section id="game" class="section">
+        <div class="game-header">
+            <h2 class="game-title">Flappy Pari 🐤</h2>
+            <p class="game-subtitle">Fly through the pipes and collect birthday wishes!</p>
+        </div>
+        <div class="game-area">
+            <canvas id="flappyCanvas" width="400" height="600"></canvas>
+            <div id="gameOverlay" class="game-overlay">
+                <div class="overlay-content">
+                    <p class="tap-text">Tap or Press Space to Start!</p>
+                </div>
+            </div>
+            <div id="gameOverScreen" class="game-over-screen hidden">
+                <h3>🎉 Game Over! 🎉</h3>
+                <p class="final-score">Score: <span id="finalScore">0</span></p>
+                <p class="cute-message" id="cuteMessage"></p>
+                <button class="play-again-btn" onclick="restartGame()">Play Again 🔁</button>
+            </div>
+        </div>
+        <div class="game-score" id="gameScore">Score: 0</div>
+        <button class="back-btn" onclick="showSection('gallery')">← Back to Gallery</button>
+    </section>
+
+    <!-- ==================== MUSIC CONTROL ==================== -->
+    <button id="musicToggle" class="music-toggle" onclick="toggleMusic()">
+        <span id="musicIcon">🔊</span>
+    </button>
+
+    <script src="app.js"></script>
+    <script src="flappy.js"></script>
+</body>
+</html>
