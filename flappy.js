@@ -40,10 +40,10 @@ const PIPE_COLOR_DARK = '#1e8449';
 
 // Cute birthday messages based on score
 const cuteMessages = [
-    { min: 0, max: 2, msg: "Aww, don't worry! Even the cutest birds stumble 🐣💕" },
-    { min: 3, max: 5, msg: "Nice try! You're just warming up! 🌸✨" },
-    { min: 6, max: 10, msg: "Wow! You're getting good at this! Keep soaring! 🦋💫" },
-    { min: 11, max: 15, msg: "Amazing! You fly like a birthday star! 🌟🎂" },
+    { min: 0, max: 2, msg: "Aww Pari, don't worry! Even the cutest birds stumble 🐣💕" },
+    { min: 3, max: 5, msg: "Nice try, Pari! You're just warming up! 🌸✨" },
+    { min: 6, max: 10, msg: "Wow Pari! You're getting good at this! Keep soaring! 🦋💫" },
+    { min: 11, max: 15, msg: "Amazing, Pari! You fly like a birthday star! 🌟🎂" },
     { min: 16, max: 20, msg: "Incredible skills, birthday girl! Pari the flappy queen! 👑🎀" },
     { min: 21, max: 30, msg: "UNSTOPPABLE Pari! You're a legend! This birthday is YOURS! 🚀🎉" },
     { min: 31, max: 999, msg: "OMG PARI!! You broke the game!! You're the ultimate birthday champion! 🏆👑💖🎂" }
@@ -73,13 +73,32 @@ function initFlappyGame() {
     resetGame();
     drawStartScreen();
 
-    // Remove existing listeners to avoid duplicates
+    // Get all interactive game elements
+    const gameArea = document.querySelector('.game-area');
+    const overlay = document.getElementById('gameOverlay');
+
+    // Remove old listeners to avoid duplicates
     flappyCanvas.removeEventListener('click', handleFlappyClick);
     flappyCanvas.removeEventListener('touchstart', handleFlappyTouch);
+    flappyCanvas.removeEventListener('touchend', handleFlappyTouchEnd);
+    gameArea.removeEventListener('click', handleFlappyClick);
+    gameArea.removeEventListener('touchstart', handleFlappyTouch);
+    gameArea.removeEventListener('touchend', handleFlappyTouchEnd);
+    overlay.removeEventListener('click', handleFlappyClick);
+    overlay.removeEventListener('touchstart', handleFlappyTouch);
+    overlay.removeEventListener('touchend', handleFlappyTouchEnd);
     document.removeEventListener('keydown', handleFlappyKey);
 
-    flappyCanvas.addEventListener('click', handleFlappyClick);
-    flappyCanvas.addEventListener('touchstart', handleFlappyTouch, { passive: false });
+    // Attach to game area (parent of both canvas and overlay) so taps always register
+    gameArea.addEventListener('click', handleFlappyClick);
+    gameArea.addEventListener('touchstart', handleFlappyTouch, { passive: false });
+    gameArea.addEventListener('touchend', handleFlappyTouchEnd, { passive: false });
+
+    // Also attach directly to overlay for safety
+    overlay.addEventListener('click', handleFlappyClick);
+    overlay.addEventListener('touchstart', handleFlappyTouch, { passive: false });
+    overlay.addEventListener('touchend', handleFlappyTouchEnd, { passive: false });
+
     document.addEventListener('keydown', handleFlappyKey);
 }
 
@@ -99,12 +118,19 @@ function resetGame() {
 
 function handleFlappyClick(e) {
     e.preventDefault();
+    e.stopPropagation();
     flap();
 }
 
 function handleFlappyTouch(e) {
     e.preventDefault();
+    e.stopPropagation();
     flap();
+}
+
+function handleFlappyTouchEnd(e) {
+    e.preventDefault();
+    e.stopPropagation();
 }
 
 function handleFlappyKey(e) {
